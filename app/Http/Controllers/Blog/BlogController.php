@@ -25,38 +25,13 @@ class BlogController extends Controller
         $request->session()->put('postagem', $post);
         */
         
+        
        $post = $request->session()->get('postagem');
+       $post = isset($post) ? $post : array();
+       
         return view('blog.index',
             ['postagemList' => $post]
-        );
-        
-/*
-        $post = $request->session()->get('postagem');
-        dump($post);
-        
-        // Hardcode do Controller: array simples 0 => 'Post 1'
-        $postagens = [
-            0 => 'Post 1',
-            1 => 'Post 2',
-            2 => 'Post 3',
-            3 => 'Post 4',
-            4 => 'Post 5'
-        ];
-        
-        // Hardcode do Controller: array de array 0 => array('titulo' => 'Titulo 1', 'postagem' => 'Postagem 1')
-        $postagemList = array(
-            0 => array('titulo' => 'Titulo 1', 'postagem' => 'Postagem 1'),
-            1 => array('titulo' => 'Titulo 2', 'postagem' => 'Postagem 2'),
-            2 => array('titulo' => 'Titulo 3', 'postagem' => 'Postagem 3')
-        );
-        
-        return view('blog.index', 
-            ['postagens' => $postagens], 
-            ['postagemList' => $postagemList]
-        );
-        
-*/
-        
+        );        
     }
 
     /**
