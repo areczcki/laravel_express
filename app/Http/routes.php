@@ -42,6 +42,10 @@ Route::get('/blog/postagem', 'Blog\BlogController@create');
 Route::post('/blog/postagem/gravar', 'Blog\BlogController@store');
 //Route::post('projetos/inserir', 'ProjetosController@postInserir');
 
+/** ROTAS PARA O Posts */
+Route::get('/posts', 'PostsController@index');
+
+
 Route::get('/botstraptema', function () {
     return view('welcome_bootstrap');
 });
