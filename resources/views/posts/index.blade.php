@@ -12,6 +12,14 @@
     		<p class="card-text">{{ $post2['content'] }}</p>
     		<a href="#" class="btn btn-primary">Read More &rarr;</a>
     	</div>
+    	
+		@foreach($post2->comments as $comment)
+		<h5 class="card-header">Comentarios: {{ $comment->name }}</h5>
+        <div class="card-body">
+          {{ $comment->comment }}
+        </div>
+        @endforeach
+    	
     	<div class="card-footer text-muted">
     		Posted on January 1, 2017 by <a href="#">Start Bootstrap</a>
     	</div>
