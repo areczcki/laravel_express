@@ -20,10 +20,16 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-
 $factory->define(App\Post::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->paragraph,
         'content' => $faker->paragraph
     ];
 });
+
+$factory->define(App\Tag::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word
+    ];
+});
+    
