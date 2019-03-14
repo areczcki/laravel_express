@@ -7,7 +7,11 @@
     
     @foreach($postagemList as $post2)
     <div class="card mb-4">
+		
     	<div class="card-body">
+    		@foreach($post2->tags as $tag)
+				<a href="#" class="btn btn-primary">{{ $tag->name }}</a>
+        	@endforeach
     		<h2 class="card-title">{{ $post2['title'] }}</h2>
     		<p class="card-text">{{ $post2['content'] }}</p>
     		<a href="#" class="btn btn-primary">Read More &rarr;</a>
