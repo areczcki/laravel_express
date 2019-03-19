@@ -46,6 +46,8 @@ Route::post('/blog/postagem/gravar', 'Blog\BlogController@store');
 Route::get('/posts', 'PostsController@index');
 
 
+Route::get('/admin', 'PostAdminController@index');
+
 Route::get('/botstraptema', function () {
     return view('welcome_bootstrap');
 });
