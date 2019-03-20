@@ -28,4 +28,18 @@ class PostAdminController extends Controller
         Return view('admin.posts.index', compact('posts'));
     }
     
+    public function create()
+    {
+        return view('admin.posts.create');
+    }
+    
+    public function store(Request $request)
+    {
+        //gravando o post
+        $this->post->create($request->all());
+        
+        //redirecionando para uma rota, após gravado
+        return redirect()->route('admin.posts.index');
+    }
+    
 }
