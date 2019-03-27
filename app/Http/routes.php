@@ -49,6 +49,9 @@ Route::get('/posts', 'PostsController@index');
 Route::get('/admin', ['as' => 'admin.posts.index' , 'uses' => 'PostAdminController@index']);
 Route::get('/admin/create', ['as' => 'admin.posts.create' , 'uses' => 'PostAdminController@create']);
 Route::post('/admin/store', ['as' => 'admin.posts.store' , 'uses' => 'PostAdminController@store']);
+Route::get('/admin/edit/{id}', ['as' => 'admin.posts.edit' , 'uses' => 'PostAdminController@edit']);
+Route::put('/admin/update/{id}', ['as' => 'admin.posts.update' , 'uses' => 'PostAdminController@update']);
+Route::get('/admin/delete/{id}', ['as' => 'admin.posts.delete' , 'uses' => 'PostAdminController@delete']);
 
 Route::get('/botstraptema', function () {
     return view('welcome_bootstrap');
