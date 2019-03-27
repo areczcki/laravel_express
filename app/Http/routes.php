@@ -48,7 +48,7 @@ Route::get('/posts', 'PostsController@index');
 
 Route::get('/admin', ['as' => 'admin.posts.index' , 'uses' => 'PostAdminController@index']);
 Route::get('/admin/create', ['as' => 'admin.posts.create' , 'uses' => 'PostAdminController@create']);
-Route::get('/admin/store', ['as' => 'admin.posts.store' , 'uses' => 'PostAdminController@store']);
+Route::post('/admin/store', ['as' => 'admin.posts.store' , 'uses' => 'PostAdminController@store']);
 
 Route::get('/botstraptema', function () {
     return view('welcome_bootstrap');

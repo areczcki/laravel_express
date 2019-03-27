@@ -5,6 +5,14 @@
 
 <h1 class="my-4">Criar Post</h1>
 
+@if($errors->any())
+	<ul class="alert">
+		@foreach($errors->all() as $error)	
+		<li> {{ $error }} </li>
+		@endforeach
+    </ul>
+@endif
+
 {!! Form::open(['route' => 'admin.posts.store', 'method' => 'post']) !!}
 
 <div class="form-group">

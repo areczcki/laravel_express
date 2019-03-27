@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Http\Requests\PostRequest;
+
 
 class PostAdminController extends Controller
 {
@@ -33,7 +32,7 @@ class PostAdminController extends Controller
         return view('admin.posts.create');
     }
     
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         //gravando o post
         $this->post->create($request->all());
