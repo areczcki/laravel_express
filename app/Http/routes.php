@@ -46,12 +46,25 @@ Route::post('/blog/postagem/gravar', 'Blog\BlogController@store');
 Route::get('/posts', 'PostsController@index');
 
 
-Route::get('/admin', ['as' => 'admin.posts.index' , 'uses' => 'PostAdminController@index']);
-Route::get('/admin/create', ['as' => 'admin.posts.create' , 'uses' => 'PostAdminController@create']);
-Route::post('/admin/store', ['as' => 'admin.posts.store' , 'uses' => 'PostAdminController@store']);
-Route::get('/admin/edit/{id}', ['as' => 'admin.posts.edit' , 'uses' => 'PostAdminController@edit']);
-Route::put('/admin/update/{id}', ['as' => 'admin.posts.update' , 'uses' => 'PostAdminController@update']);
-Route::get('/admin/delete/{id}', ['as' => 'admin.posts.delete' , 'uses' => 'PostAdminController@delete']);
+/*
+Route::get('/admin/posts', ['as' => 'admin.posts.index' , 'uses' => 'PostAdminController@index']);
+Route::get('/admin/posts/create', ['as' => 'admin.posts.create' , 'uses' => 'PostAdminController@create']);
+Route::post('/admin/posts/store', ['as' => 'admin.posts.store' , 'uses' => 'PostAdminController@store']);
+Route::get('/admin/posts/edit/{id}', ['as' => 'admin.posts.edit' , 'uses' => 'PostAdminController@edit']);
+Route::put('/admin/posts/update/{id}', ['as' => 'admin.posts.update' , 'uses' => 'PostAdminController@update']);
+Route::get('/admin/posts/delete/{id}', ['as' => 'admin.posts.delete' , 'uses' => 'PostAdminController@delete']);
+*/
+    
+Route::group(['prefix' => 'admin'], function () {
+    Route::group(['prefix' => 'posts'], function () {
+        Route::get('', ['as' => 'admin.posts.index' , 'uses' => 'PostAdminController@index']);
+        Route::get('create', ['as' => 'admin.posts.create' , 'uses' => 'PostAdminController@create']);
+        Route::post('store', ['as' => 'admin.posts.store' , 'uses' => 'PostAdminController@store']);
+        Route::get('edit/{id}', ['as' => 'admin.posts.edit' , 'uses' => 'PostAdminController@edit']);
+        Route::put('update/{id}', ['as' => 'admin.posts.update' , 'uses' => 'PostAdminController@update']);
+        Route::get('delete/{id}', ['as' => 'admin.posts.delete' , 'uses' => 'PostAdminController@delete']);
+    });
+});
 
 Route::get('/botstraptema', function () {
     return view('welcome_bootstrap');
