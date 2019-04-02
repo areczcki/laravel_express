@@ -69,11 +69,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
 
 Route::get('/auth', function() {
-    $user = \App\User::find(1);
-    Auth::login($user);
-    if(Auth::check()){
-        return "oi";
+    if(Auth::attempt(['email' => 'alexandrebezao@gmail.com', 'password' => '123456'])) {
+        return 'Autenticou';
     }
+    return 'falha na autenticacao';
 });
 
     
