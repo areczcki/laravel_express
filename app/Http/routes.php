@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +56,7 @@ Route::put('/admin/posts/update/{id}', ['as' => 'admin.posts.update' , 'uses' =>
 Route::get('/admin/posts/delete/{id}', ['as' => 'admin.posts.delete' , 'uses' => 'PostAdminController@delete']);
 */
     
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'posts'], function () {
         Route::get('', ['as' => 'admin.posts.index' , 'uses' => 'PostAdminController@index']);
         Route::get('create', ['as' => 'admin.posts.create' , 'uses' => 'PostAdminController@create']);
@@ -65,6 +66,21 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('delete/{id}', ['as' => 'admin.posts.delete' , 'uses' => 'PostAdminController@delete']);
     });
 });
+
+
+Route::get('/auth', function() {
+    $user = \App\User::find(1);
+    Auth::login($user);
+    if(Auth::check()){
+        return "oi";
+    }
+});
+
+    
+Route::get('/auth/logout', function() {
+    Auth::logout();
+});
+    
 
 Route::get('/botstraptema', function () {
     return view('welcome_bootstrap');

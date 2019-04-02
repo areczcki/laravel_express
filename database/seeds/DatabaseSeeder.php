@@ -15,6 +15,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
+        
+        factory('App\User')->create(
+            [
+                'name'      => 'alexandre',
+                'email'     => 'alexandrebezao@gmail.com',
+                'password'  => bcrypt(123456),
+                'remember_token' => str_random(10)
+            ]
+        );
 
         // $this->call(UserTableSeeder::class);
         $this->call(TagTableSeeder::class);
