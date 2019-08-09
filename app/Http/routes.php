@@ -68,12 +68,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 });
 
 
-Route::get('/auth', function() {
+Route::get('/home', 'PostAdminController@index');
+
+Route::get('/auth', 'Auth\AuthController@getLogin');
+Route::get('/auth/login', 'Auth\AuthController@getLogin');
+Route::post('/auth/login', 'Auth\AuthController@postLogin');
+
+
+/* Route::get('/auth', function() {
     if(Auth::attempt(['email' => 'alexandrebezao@gmail.com', 'password' => '123456'])) {
         return 'Autenticou';
     }
     return 'falha na autenticacao';
-});
+}); */
 
     
 Route::get('/auth/logout', function() {
