@@ -29,7 +29,8 @@ class PostAdminController extends Controller
     
     public function create()
     {
-        return view('admin.posts.create');
+        $post = new Post();
+        return view('admin.posts.create', compact('post'));
     }
     
     public function store(PostRequest $request)
