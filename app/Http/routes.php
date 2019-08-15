@@ -55,15 +55,15 @@ Route::get('/admin/posts/edit/{id}', ['as' => 'admin.posts.edit' , 'uses' => 'Po
 Route::put('/admin/posts/update/{id}', ['as' => 'admin.posts.update' , 'uses' => 'PostAdminController@update']);
 Route::get('/admin/posts/delete/{id}', ['as' => 'admin.posts.delete' , 'uses' => 'PostAdminController@delete']);
 */
-    
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'posts'], function () {
-        Route::get('', ['as' => 'admin.posts.index' , 'uses' => 'PostAdminController@index']);
-        Route::get('create', ['as' => 'admin.posts.create' , 'uses' => 'PostAdminController@create']);
-        Route::post('store', ['as' => 'admin.posts.store' , 'uses' => 'PostAdminController@store']);
-        Route::get('edit/{id}', ['as' => 'admin.posts.edit' , 'uses' => 'PostAdminController@edit']);
-        Route::put('update/{id}', ['as' => 'admin.posts.update' , 'uses' => 'PostAdminController@update']);
-        Route::get('delete/{id}', ['as' => 'admin.posts.delete' , 'uses' => 'PostAdminController@delete']);
+        Route::get('', ['as' => 'admin.posts.index', 'uses' => 'PostAdminController@index']);
+        Route::get('create', ['as' => 'admin.posts.create', 'uses' => 'PostAdminController@create']);
+        Route::post('store', ['as' => 'admin.posts.store', 'uses' => 'PostAdminController@store']);
+        Route::get('edit/{id}', ['as' => 'admin.posts.edit', 'uses' => 'PostAdminController@edit']);
+        Route::put('update/{id}', ['as' => 'admin.posts.update', 'uses' => 'PostAdminController@update']);
+        Route::get('delete/{id}', ['as' => 'admin.posts.delete', 'uses' => 'PostAdminController@delete']);
     });
 });
 
@@ -82,11 +82,11 @@ Route::post('/auth/login', 'Auth\AuthController@postLogin');
     return 'falha na autenticacao';
 }); */
 
-    
-Route::get('/auth/logout', function() {
+
+Route::get('/auth/logout', function () {
     Auth::logout();
 });
-    
+
 
 Route::get('/botstraptema', function () {
     return view('welcome_bootstrap');
