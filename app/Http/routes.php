@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('base_layout', function () {
+    return view('base_layout.conteudo');
+});
+
 Route::get('/teste', function () {
     return view('teste');
 });

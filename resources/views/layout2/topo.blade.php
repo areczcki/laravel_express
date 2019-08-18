@@ -191,8 +191,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="{{ asset("assets/bootstrap/vendor/jquery/jquery.min.js") }}"></script>
-    <script src="{{ asset("assets/bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
+    <script src="{{ asset("assets/sb_admin/vendor/jquery/jquery.min.js") }}"></script>
+    <script src="{{ asset("assets/sb_admin/vendor/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
     
   </body>
 

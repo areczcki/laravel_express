@@ -1,7 +1,5 @@
-@extends('layout.layout')
-@section('title') Blog - Postagens @stop
-
-@section('body')
+@extends("base_layout.layout")
+@section("conteudo")
 
 <h1 class="my-4">Edit Post: {{ $post->title }}</h1>
 
@@ -22,3 +20,4 @@
 </div>
 
 {!! Form::close() !!}
+@stop

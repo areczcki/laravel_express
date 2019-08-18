@@ -19,11 +19,11 @@ class PostAdminController extends Controller
     
     public function index()
     {
-        //Sem paginação
-        //$this->post = $this->post->all();
+        //Sem paginaï¿½ï¿½o
+        //$posts = $this->post->all();
         
-        //Com paginação
-        $posts = $this->post->paginate(5);
+        //Com paginaÃ§Ã£o
+        $posts = $this->post->paginate(100);
         Return view('admin.posts.index', compact('posts'));
     }
     
@@ -38,7 +38,7 @@ class PostAdminController extends Controller
         //gravando o post
         $this->post->create($request->all());
         
-        //redirecionando para uma rota, após gravado
+        //redirecionando para uma rota, apï¿½s gravado
         return redirect()->route('admin.posts.index');
     }
     
@@ -54,7 +54,7 @@ class PostAdminController extends Controller
         //gravando o post
         $this->post->find($id)->update($request->all());
         
-        //redirecionando para uma rota, após gravado
+        //redirecionando para uma rota, apï¿½s gravado
         return redirect()->route('admin.posts.index');
     }
     
